@@ -2,9 +2,11 @@ import "../global.css";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
-import { vars } from "nativewind";
-import { memo, useEffect } from "react";
-import { View, StyleSheet } from "react-native";
+import { vars, useColorScheme } from "nativewind";
+import { memo, useEffect, useState } from "react";
+
+import { ThemeProvider } from "@react-navigation/native";
+import { useThemeStore } from "@/lib/stateStore";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -13,7 +15,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
+  initialRouteName: "/welcome",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -43,18 +45,17 @@ export default memo(function RootLayout() {
   return <RootLayoutNav />;
 });
 
-const theme = vars({
-  "--theme-fg": "black",
-  "--theme-bg": "rgba(230,230,230,1)",
-});
-
 function RootLayoutNav() {
+  const { colorScheme } = useColorScheme() ?? "light";
+  const theme = useThemeStore((state) => state.theme);
   return (
-    <View style={[theme, StyleSheet.absoluteFill]}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+    <ThemeProvider
+      value={colorScheme == "light" ? theme.LIGHT_THEME : theme.DARK_THEME}
+    >
+      <Stack initialRouteName="welcome">
+        <Stack.Screen name="welcome" options={{ headerShown: false }} />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
       </Stack>
-    </View>
+    </ThemeProvider>
   );
 }

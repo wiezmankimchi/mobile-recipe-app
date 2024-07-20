@@ -1,9 +1,9 @@
 {
-  "name": "nativewind-expo-router",
+  "name": "mobile-recepie-app",
   "main": "index",
-  "version": "1.0.2-alpha.25",
+  "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
+    "start": "expo start -c",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -23,7 +23,7 @@
     "@react-navigation/native": "^6.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "expo": "49.0.13",
+    "expo": "^49.0.13",
     "expo-font": "~11.4.0",
     "expo-linking": "~5.0.2",
     "expo-router": "2.0.10",
@@ -38,11 +38,13 @@
     "react-native": "0.72.5",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-reanimated": "~3.3.0",
+    "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "4.6.3",
     "react-native-screens": "~3.22.0",
     "react-native-web": "~0.19.6",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.3.3",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -57,5 +59,5 @@
     "react-refresh": "0.14.0"
   },
   "license": "MIT",
-  "author": "Rodrigo Figueroa Gonzalez (x.com/bidah)"
+  "author": "Wiezman Kimchi"
 }
