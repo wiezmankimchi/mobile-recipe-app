@@ -6,7 +6,7 @@ import { vars, useColorScheme } from "nativewind";
 import { memo, useEffect, useState } from "react";
 
 import { ThemeProvider } from "@react-navigation/native";
-import { useThemeStore } from "@/lib/stateStore";
+import { useThemeStore } from "@/lib/themeStore";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -55,6 +55,8 @@ function RootLayoutNav() {
       <Stack initialRouteName="welcome">
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="home" options={{ headerShown: false }} />
+        <Stack.Screen name="[recipeID]" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
